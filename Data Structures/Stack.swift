@@ -39,14 +39,14 @@ struct StackView: View {
             })
             HStack {
                 Button("Push") {
-                    withAnimation(.default) {
+                    withAnimation(.easeOut) {
                         self.stack.push(self.stack.items.count + 1)
                     }
                 }
                 .padding()
                 
                 Button("Pop") {
-                    withAnimation(.default) {
+                    withAnimation(.easeIn) {
                         self.stack.pop()
                     }
                 }

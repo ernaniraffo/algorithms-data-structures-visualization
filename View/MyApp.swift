@@ -1,3 +1,7 @@
+//
+// MyApp.swift
+// Ernani Raffo
+
 import SwiftUI
 
 @main
