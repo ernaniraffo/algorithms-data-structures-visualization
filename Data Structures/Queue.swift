@@ -1,16 +1,16 @@
 //
-//  Stack.swift
-//  Algorithms and Data Structures
+//  Queue.swift
+//  
 //
-//  Created by Ernani Raffo on 3/30/23.
+//  Created by Ernani Raffo on 4/3/23.
 //
 
 import Foundation
 import SwiftUI
 
-let initial_stack = Stack([1, 2])
+let initial_queue = Queue([1, 2])
 
-struct Stack {
+struct Queue {
     var items: [Node] = []
     
     init(_ items: [Int] = []) {
@@ -24,30 +24,32 @@ struct Stack {
     }
     
     mutating func pop() -> Void {
-        _ = self.items.popLast()
+        if (self.items.count > 0) {
+            self.items.remove(at: 0)
+        }
     }
 }
 
-struct StackView: View {
-    @State var stack = initial_stack
+struct QueueView: View {
+    @State var q = initial_queue
     
     var body: some View {
         VStack {
-            ForEach(self.stack.items.reversed(), id: \.val, content: { node in
+            ForEach(self.q.items, id: \.id, content: { node in
                 Text("\(node.val)" as String)
                     .modifier(NodeView())
             })
             HStack {
                 Button("Push") {
-                    withAnimation(.easeOut) {
-                        self.stack.push(self.stack.items.count + 1)
+                    withAnimation(.linear) {
+                        self.q.push(self.q.items.count + 1)
                     }
                 }
                 .padding()
                 
                 Button("Pop") {
-                    withAnimation(.easeIn) {
-                        self.stack.pop()
+                    withAnimation(.easeOut) {
+                        self.q.pop()
                     }
                 }
                 .padding()
