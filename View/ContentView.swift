@@ -9,6 +9,7 @@ struct ContentView: View {
             List {
                 NavigationLink("Stack", destination: StackView())
                 NavigationLink("Queue", destination: QueueView())
+                NavigationLink("Insertion Sort", destination: InsertionSortView())
             }
         }
     }
